@@ -1,4 +1,4 @@
-﻿namespace engmgr.Core.Integrations.GitHub.GraphQL
+﻿namespace  DevEx.Integrations.GitHub.GraphQL
 {
     public class Node
     {

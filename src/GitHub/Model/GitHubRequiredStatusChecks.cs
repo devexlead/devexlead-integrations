@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace engmgr.Core.Integrations.GitHub.Model
+namespace  DevEx.Integrations.GitHub.Model
 {
 
     public class GitHubRequiredStatusChecks

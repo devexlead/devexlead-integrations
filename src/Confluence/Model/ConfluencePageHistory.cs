@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Integrations.Confluence.Model
+namespace DevEx.Integrations.Confluence.Model
 {
     public class ConfluencePageHistory
     {

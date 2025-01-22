@@ -1,7 +1,7 @@
-﻿using engmgr.Core.Integrations.GitHub.Model;
+﻿using  DevEx.Integrations.GitHub.Model;
 using Refit;
 
-namespace engmgr.Core.Integrations.GitHub
+namespace  DevEx.Integrations.GitHub
 {
     public class GitHubConnector
     {

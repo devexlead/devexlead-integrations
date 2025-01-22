@@ -1,7 +1,6 @@
 ﻿using System.Text.Json.Serialization;
-using Integrations.JIRA.Model;
 
-namespace engmgr.Core.Integrations.JIRA.Model.Response
+namespace DevEx.Integrations.JIRA.Model.Response
 {
     public class JiraSprintQueryResponse
     {

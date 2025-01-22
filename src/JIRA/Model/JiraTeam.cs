@@ -1,4 +1,4 @@
-﻿namespace Integrations.JIRA.Model
+﻿namespace DevEx.Integrations.JIRA.Model
 {
     public class JiraTeam
     {

@@ -1,6 +1,4 @@
-﻿using Integrations.GoogleCalendar.Model;
-
-namespace engmgr.Core.Integrations.GoogleCalendar.Model.Response
+﻿namespace DevEx.Integrations.GoogleCalendar.Model.Response
 {
     public class GoogleCalendarResponse
     {

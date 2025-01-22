@@ -1,4 +1,4 @@
-﻿namespace engmgr.Integrations.Confluence.Model
+﻿namespace DevEx.Integrations.Confluence.Model
 {
     public class ConfluencePageBodyStorage
     {

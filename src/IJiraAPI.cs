@@ -1,10 +1,10 @@
-﻿using engmgr.Core.Integrations.JIRA.Model;
-using engmgr.Core.Integrations.JIRA.Model.Request;
-using engmgr.Core.Integrations.JIRA.Model.Response;
-using engmgr.Integrations.JIRA.Model.Response;
+﻿using  DevEx.Integrations.JIRA.Model;
+using  DevEx.Integrations.JIRA.Model.Request;
+using  DevEx.Integrations.JIRA.Model.Response;
+using DevEx.Integrations.JIRA.Model.Response;
 using Refit;
 
-namespace engmgr.Core.Integrations
+namespace  DevEx.Integrations
 {
     /// <summary>
     /// https://developer.atlassian.com/server/jira/platform/rest/v10000/intro/#gettingstarted

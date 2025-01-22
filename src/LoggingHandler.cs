@@ -1,10 +1,4 @@
-﻿using Integrations.JIRA.Model;
-using System.Diagnostics;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-
-public class LoggingHandler : DelegatingHandler
+﻿public class LoggingHandler : DelegatingHandler
 {
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {

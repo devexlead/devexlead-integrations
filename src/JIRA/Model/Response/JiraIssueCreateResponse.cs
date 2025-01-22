@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace engmgr.Integrations.JIRA.Model.Response
+namespace DevEx.Integrations.JIRA.Model.Response
 {
 
     public class JiraIssueCreateResponse

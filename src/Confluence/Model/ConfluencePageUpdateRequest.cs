@@ -1,11 +1,4 @@
-﻿using Integrations.Confluence.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace engmgr.Integrations.Confluence.Model
+﻿namespace DevEx.Integrations.Confluence.Model
 {
     public class ConfluencePageUpdateRequest
     {

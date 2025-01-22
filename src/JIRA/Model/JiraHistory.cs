@@ -1,7 +1,7 @@
 ﻿using System.Data.SqlTypes;
 using System.Text.Json.Serialization;
 
-namespace Integrations.JIRA.Model
+namespace DevEx.Integrations.JIRA.Model
 {
     public class JiraHistory
     {

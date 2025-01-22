@@ -1,10 +1,8 @@
 ﻿using System.Text;
-using engmgr.Core.Integrations;
-using engmgr.Integrations.Confluence.Model;
-using Integrations.Confluence.Model;
+using DevEx.Integrations.Confluence.Model;
 using Refit;
 
-namespace Integrations.Confluence
+namespace DevEx.Integrations.Confluence
 {
     /// <summary>
     /// https://docs.atlassian.com/confluence/REST/latest/

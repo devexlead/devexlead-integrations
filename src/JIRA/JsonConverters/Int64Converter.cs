@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Integrations.Common.JsonConverters
+namespace DevEx.IntegrationsCommon.JsonConverters
 {
     public class Int64Converter : JsonConverter<long>
     {

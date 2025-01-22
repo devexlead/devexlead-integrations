@@ -1,8 +1,8 @@
 ﻿using Refit;
-using engmgr.Core.Integrations.GitHub.Model;
-using engmgr.Core.Integrations.GitHub.GraphQL;
+using  DevEx.Integrations.GitHub.Model;
+using  DevEx.Integrations.GitHub.GraphQL;
 
-namespace engmgr.Core.Integrations
+namespace  DevEx.Integrations
 {
     /// <summary>
     /// https://docs.github.com/en/rest
