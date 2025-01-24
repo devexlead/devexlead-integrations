@@ -37,8 +37,6 @@ namespace DevEx.Integrations.GoogleCalendar
                     return "en.australian";
                 case CountryEnum.Pakistan:
                     return "en.pk";
-                case CountryEnum.Russia:
-                    return "en.russian";
                 case CountryEnum.Philippines:
                     return "en.philippines";
                 default:

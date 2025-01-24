@@ -4,7 +4,6 @@
     {
         Australia,
         Pakistan,
-        Russia,
         Philippines
     }
 }
