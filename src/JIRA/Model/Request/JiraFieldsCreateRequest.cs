@@ -32,7 +32,7 @@ namespace DevEx.Integrations.JIRA.Model.Request
 
         //TODO: Make this customizable
         [JsonPropertyName("customfield_10020")]
-        public int? SprintId { get; set; }
+        public long? SprintId { get; set; }
 
 
         [JsonPropertyName("fixVersions")]
