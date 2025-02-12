@@ -3,7 +3,7 @@
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
 
-        #if DEBUG
+#if DEBUG
         // Log request details
         Console.WriteLine("Request:");
         Console.WriteLine(request.ToString());
@@ -11,11 +11,11 @@
         {
             Console.WriteLine(await request.Content.ReadAsStringAsync());
         }
-        #endif
+#endif
 
         var response = await base.SendAsync(request, cancellationToken);
 
-        #if DEBUG
+#if DEBUG
         // Log response details
         Console.WriteLine("Response:");
         Console.WriteLine(response.ToString());
@@ -23,11 +23,11 @@
         {
             Console.WriteLine(await response.Content.ReadAsStringAsync());
         }
-        #endif
+#endif
 
 
         return response;
 
-       
+
     }
 }

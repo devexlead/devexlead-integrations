@@ -1,4 +1,4 @@
-﻿namespace  DevEx.Integrations.JIRA.Model.Request
+﻿namespace DevEx.Integrations.JIRA.Model.Request
 {
     public class UpdateParentRequestParent
     {

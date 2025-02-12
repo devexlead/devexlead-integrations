@@ -15,9 +15,9 @@ namespace DevEx.Integrations.Confluence
         public ConfluenceConnector(string baseUrl, string user, string key)
         {
             var atlassianAuth = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{user}:{key}"));
-            
+
             _headers = new Dictionary<string, string> {
-                                                            { "Authorization", $"Basic {atlassianAuth}"} 
+                                                            { "Authorization", $"Basic {atlassianAuth}"}
                                                       };
 
             var settings = RefitHelper.GetSettings();
@@ -55,7 +55,7 @@ namespace DevEx.Integrations.Confluence
         public async Task<List<ConfluencePageSearchResult>> SearchContentByUserAsync(string userAccountId)
         {
             var pageResults = await _api.SearchAsync(_headers, userAccountId);
-            return pageResults.Results; 
+            return pageResults.Results;
         }
     }
 }

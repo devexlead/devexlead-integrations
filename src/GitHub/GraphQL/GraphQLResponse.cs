@@ -1,4 +1,4 @@
-﻿namespace  DevEx.Integrations.GitHub.GraphQL
+﻿namespace DevEx.Integrations.GitHub.GraphQL
 {
     public class GraphQLResponse
     {

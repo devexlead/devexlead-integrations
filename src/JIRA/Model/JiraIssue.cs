@@ -12,6 +12,6 @@ namespace DevEx.Integrations.JIRA.Model
 
         [JsonPropertyName("changelog")]
         public JiraChangelog Changelog { get; set; }
-        
+
     }
 }

@@ -1,7 +1,7 @@
-﻿using  DevEx.Integrations.GitHub.Model;
+﻿using DevEx.Integrations.GitHub.Model;
 using Refit;
 
-namespace  DevEx.Integrations.GitHub
+namespace DevEx.Integrations.GitHub
 {
     public class GitHubConnector
     {

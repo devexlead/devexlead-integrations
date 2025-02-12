@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace  DevEx.Integrations.GitHub.Model
+﻿namespace DevEx.Integrations.GitHub.Model
 {
 
     public class GitHubRequiredStatusChecks

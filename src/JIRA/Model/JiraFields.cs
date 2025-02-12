@@ -33,7 +33,7 @@ namespace DevEx.Integrations.JIRA.Model
 
         [JsonPropertyName("priority")]
         public JiraPriority Priority { get; set; }
-        
+
         //TODO: Make this customizable
         [JsonPropertyName("customfield_10020")]
         public List<JiraSprint> Sprints { get; set; }

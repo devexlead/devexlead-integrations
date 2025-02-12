@@ -1,11 +1,10 @@
 ﻿using System.Text;
-using  DevEx.Integrations.JIRA.Model;
-using  DevEx.Integrations.JIRA.Model.Request;
-using  DevEx.Integrations.JIRA.Model.Response;
+using DevEx.Integrations.JIRA.Model;
+using DevEx.Integrations.JIRA.Model.Request;
 using DevEx.Integrations.JIRA.Model.Response;
 using Refit;
 
-namespace  DevEx.Integrations.JIRA
+namespace DevEx.Integrations.JIRA
 {
     /// <summary>
     /// https://docs.atlassian.com/confluence/REST/latest/

@@ -1,8 +1,7 @@
-﻿using Refit;
-using  DevEx.Integrations.GitHub.Model;
-using  DevEx.Integrations.GitHub.GraphQL;
+﻿using DevEx.Integrations.GitHub.Model;
+using Refit;
 
-namespace  DevEx.Integrations
+namespace DevEx.Integrations
 {
     /// <summary>
     /// https://docs.github.com/en/rest

@@ -1,4 +1,4 @@
-﻿namespace  DevEx.Integrations.GitHub.Model
+﻿namespace DevEx.Integrations.GitHub.Model
 {
     public class GitHubBranch
     {
