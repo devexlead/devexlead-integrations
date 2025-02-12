@@ -23,7 +23,7 @@ namespace DevEx.Integrations.JIRA.Model
         public virtual JiraStatus Status { get; set; }
 
         [JsonPropertyName("duedate")]
-        public virtual DateTime? DueDate { get; set; }
+        public virtual DateOnly? DueDate { get; set; }
 
         [JsonPropertyName("issuetype")]
         public JiraIssueType IssueType { get; set; }
@@ -39,7 +39,7 @@ namespace DevEx.Integrations.JIRA.Model
         public List<JiraSprint> Sprints { get; set; }
 
         [JsonPropertyName("customfield_10026")]
-        public double? Points { get; set; }
+        public short? Points { get; set; }
 
         [JsonPropertyName("customfield_10001")]
         public JiraTeam? Team { get; set; }
@@ -48,7 +48,7 @@ namespace DevEx.Integrations.JIRA.Model
         public List<JiraFixVersion> FixVersions { get; set; }
 
         [JsonPropertyName("created")]
-        public string Created { get; set; }
+        public DateOnly Created { get; set; }
 
         [JsonPropertyName("subtasks")]
         public List<JiraIssue> Subtasks { get; set; }
