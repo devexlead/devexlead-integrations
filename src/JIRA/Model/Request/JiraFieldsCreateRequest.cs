@@ -25,7 +25,7 @@ namespace DevEx.Integrations.JIRA.Model.Request
         public JiraIssueType IssueType { get; set; }
 
         [JsonPropertyName("assignee")]
-        public JiraAssignee Assignee { get; set; }
+        public JiraUser Assignee { get; set; }
 
         [JsonPropertyName("priority")]
         public JiraPriority Priority { get; set; }
@@ -40,6 +40,9 @@ namespace DevEx.Integrations.JIRA.Model.Request
 
         [JsonPropertyName("customfield_10045")]
         public JiraEnvironment Environment { get; set; }
+
+        [JsonPropertyName("customfield_10015")]
+        public virtual DateOnly? StartDate { get; set; }
         [JsonPropertyName("duedate")]
         public virtual DateOnly? DueDate { get; set; }
 

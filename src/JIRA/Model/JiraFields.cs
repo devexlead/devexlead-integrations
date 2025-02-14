@@ -29,7 +29,7 @@ namespace DevEx.Integrations.JIRA.Model
         public JiraIssueType IssueType { get; set; }
 
         [JsonPropertyName("assignee")]
-        public JiraAssignee Assignee { get; set; }
+        public JiraUser Assignee { get; set; }
 
         [JsonPropertyName("priority")]
         public JiraPriority Priority { get; set; }
@@ -48,7 +48,7 @@ namespace DevEx.Integrations.JIRA.Model
         public List<JiraFixVersion> FixVersions { get; set; }
 
         [JsonPropertyName("created")]
-        public DateOnly Created { get; set; }
+        public DateTime Created { get; set; }
 
         [JsonPropertyName("subtasks")]
         public List<JiraIssue> Subtasks { get; set; }

@@ -2,6 +2,7 @@
 using DevEx.Integrations.JIRA.Model;
 using DevEx.Integrations.JIRA.Model.Request;
 using DevEx.Integrations.JIRA.Model.Response;
+using devex_integrations.JIRA.Model.Response;
 using Refit;
 
 namespace DevEx.Integrations.JIRA
@@ -26,10 +27,23 @@ namespace DevEx.Integrations.JIRA
             _api = RestService.For<IJiraAPI>(baseUrl, settings);
         }
 
-        public async Task<JiraIssueQueryResponse> RunJqlAsync(string jql, int startAt)
+        public async Task<List<JiraIssue>> RunJqlAsync(string jql)
         {
-            var response = await _api.RunJqlAsync(_headers, $"{jql}", startAt);
-            return response;
+            var allJiraIssues = new List<JiraIssue>();
+
+            var increment = 100;
+            var startAt = 0;
+            var finishAt = 1;
+
+            while (startAt <= finishAt)
+            {
+                var response = await _api.RunJqlAsync(_headers, $"{jql}", startAt);
+                startAt += increment;
+                finishAt = (int)response.Total - 1;
+                allJiraIssues.AddRange(response.Issues);
+            }
+
+            return allJiraIssues;
         }
 
         public async Task<JiraIssueCreateResponse> CreateIssueAsync(JiraIssueCreateRequest jiraIssueCreateRequest)
@@ -38,10 +52,23 @@ namespace DevEx.Integrations.JIRA
             return jiraResponse;
         }
 
-        public async Task<JiraSprintQueryResponse> FetchSprints(int boardId, int startAt)
+        public async Task<List<JiraSprint>> FetchSprints(int boardId)
         {
-            var response = await _api.FetchSprints(_headers, boardId, startAt);
-            return response;
+            var allJiraSprints = new List<JiraSprint>();
+
+            var increment = 100;
+            var startAt = 0;
+            var finishAt = 1;
+
+            while (startAt <= finishAt)
+            {
+                var response = await _api.FetchSprints(_headers, boardId, startAt);
+                startAt += increment;
+                finishAt = (int)response.Total - 1;
+                allJiraSprints.AddRange(response.Values);
+            }
+
+            return allJiraSprints;
         }
 
 
@@ -53,6 +80,11 @@ namespace DevEx.Integrations.JIRA
         public async Task<JiraCommentResponse> FetchComments(string issueId)
         {
             return await _api.FetchComments(_headers, issueId);
+        }
+
+        public async Task<JiraGroupMembersResponse> GetJiraUsersByGroupName(string groupName)
+        {
+            return await _api.GetJiraUsersByGroupName(_headers, groupName);
         }
 
         public async Task PostComment(string issueId, string comment)

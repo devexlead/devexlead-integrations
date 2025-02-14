@@ -7,7 +7,5 @@ namespace DevEx.Integrations.JIRA.Model
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonPropertyName("value")]
-        public string Value { get; set; }
     }
 }

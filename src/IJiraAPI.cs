@@ -1,6 +1,7 @@
 ﻿using DevEx.Integrations.JIRA.Model;
 using DevEx.Integrations.JIRA.Model.Request;
 using DevEx.Integrations.JIRA.Model.Response;
+using devex_integrations.JIRA.Model.Response;
 using Refit;
 
 namespace DevEx.Integrations
@@ -21,6 +22,9 @@ namespace DevEx.Integrations
 
         [Get("/rest/api/2/issue/{issueId}/comment")]
         Task<JiraCommentResponse> FetchComments([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId);
+
+        [Get("/rest/api/3/group/member?groupname={GroupName}")]
+        Task<JiraGroupMembersResponse> GetJiraUsersByGroupName([HeaderCollection] IDictionary<string, string> headers, [AliasAs("GroupName")] string groupName);
 
         [Post("/rest/api/2/issue/{issueId}/comment")]
         Task PostComment([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] string request);

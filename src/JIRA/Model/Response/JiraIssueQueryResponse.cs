@@ -12,6 +12,6 @@ namespace DevEx.Integrations.JIRA.Model.Response
         [JsonPropertyName("total")]
         public int Total { get; set; }
         [JsonPropertyName("issues")]
-        public List<JiraIssue> Values { get; set; }
+        public List<JiraIssue> Issues { get; set; }
     }
 }

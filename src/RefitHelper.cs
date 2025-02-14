@@ -15,7 +15,8 @@ namespace DevEx.Integrations
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                     DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
                     PropertyNameCaseInsensitive = true,
-                    WriteIndented = true
+                    WriteIndented = true,
+                    Converters = { new IntegrationsCommon.JsonConverters.DateTimeConverter() }
                 }),
                 HttpMessageHandlerFactory = () => new LoggingHandler { InnerHandler = new HttpClientHandler() }
             };

@@ -2,7 +2,7 @@
 
 namespace DevEx.Integrations.JIRA.Model
 {
-    public class JiraAssignee
+    public class JiraUser
     {
         [JsonPropertyName("displayname")]
         public string DisplayName { get; set; }
@@ -12,5 +12,14 @@ namespace DevEx.Integrations.JIRA.Model
 
         [JsonPropertyName("accountId")]
         public string AccountId { get; set; }
+
+        [JsonPropertyName("active")]
+        public bool Active { get; set; }
+
+        [JsonPropertyName("emailAddress")]
+        public string EmailAddress { get; set; }
+
+        [JsonPropertyName("timeZone")]
+        public string TimeZone { get; set; }
     }
 }
