@@ -8,10 +8,10 @@ namespace DevEx.Integrations.GoogleCalendar
         readonly string _apiKey;
         private IGoogleCalendar _api;
 
-        public GoogleCalendarConnector(string key)
+        public GoogleCalendarConnector(string key, bool isVerbose)
         {
             _apiKey = key;
-            var settings = RefitHelper.GetSettings();
+            var settings = RefitHelper.GetSettings(isVerbose);
             _api = RestService.For<IGoogleCalendar>("https://www.googleapis.com", settings);
         }
 

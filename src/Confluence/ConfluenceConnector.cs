@@ -12,7 +12,7 @@ namespace DevEx.Integrations.Confluence
         Dictionary<string, string> _headers;
         IConfluenceAPI _api;
 
-        public ConfluenceConnector(string baseUrl, string user, string key)
+        public ConfluenceConnector(string baseUrl, string user, string key, bool isVerbose)
         {
             var atlassianAuth = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{user}:{key}"));
 
@@ -20,7 +20,7 @@ namespace DevEx.Integrations.Confluence
                                                             { "Authorization", $"Basic {atlassianAuth}"}
                                                       };
 
-            var settings = RefitHelper.GetSettings();
+            var settings = RefitHelper.GetSettings(isVerbose);
             _api = RestService.For<IConfluenceAPI>(baseUrl, settings);
         }
 

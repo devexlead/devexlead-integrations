@@ -8,14 +8,14 @@ namespace DevEx.Integrations.GitHub
         IGitHubAPI _api;
         Dictionary<string, string> _headers;
 
-        public GitHubConnector(string token)
+        public GitHubConnector(string token, bool isVerbose)
         {
             _headers = new Dictionary<string, string> {
                                                             { "Authorization", $"Bearer {token}" },
                                                             { "User-Agent", $"EngMgrCli" } //https://docs.github.com/en/rest/overview/resources-in-the-rest-api#user-agent-required
                                                       };
 
-            var settings = RefitHelper.GetSettings();
+            var settings = RefitHelper.GetSettings(isVerbose);
             _api = RestService.For<IGitHubAPI>("https://api.github.com", settings);
         }
 

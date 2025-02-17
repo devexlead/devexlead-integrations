@@ -15,7 +15,7 @@ namespace DevEx.Integrations.JIRA
         Dictionary<string, string> _headers;
         IJiraAPI _api;
 
-        public JiraConnector(string baseUrl, string user, string key)
+        public JiraConnector(string baseUrl, string user, string key, bool isVerbose)
         {
             var atlassianAuth = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{user}:{key}"));
 
@@ -23,7 +23,7 @@ namespace DevEx.Integrations.JIRA
                                                             { "Authorization", $"Basic {atlassianAuth}" }
                                                       };
 
-            var settings = RefitHelper.GetSettings();
+            var settings = RefitHelper.GetSettings(isVerbose);
             _api = RestService.For<IJiraAPI>(baseUrl, settings);
         }
 

@@ -6,9 +6,9 @@ namespace DevEx.Integrations
 {
     public static class RefitHelper
     {
-        public static RefitSettings GetSettings()
+        public static RefitSettings GetSettings(bool isVerbose)
         {
-            return new RefitSettings
+            var refitSettings = new RefitSettings
             {
                 ContentSerializer = new SystemTextJsonContentSerializer(new JsonSerializerOptions
                 {
@@ -18,8 +18,14 @@ namespace DevEx.Integrations
                     WriteIndented = true,
                     Converters = { new IntegrationsCommon.JsonConverters.DateTimeConverter() }
                 }),
-                HttpMessageHandlerFactory = () => new LoggingHandler { InnerHandler = new HttpClientHandler() }
             };
+
+            if (isVerbose)
+            {
+                refitSettings.HttpMessageHandlerFactory = () => new LoggingHandler { InnerHandler = new HttpClientHandler() };
+            }
+
+            return refitSettings;
         }
     }
 }
