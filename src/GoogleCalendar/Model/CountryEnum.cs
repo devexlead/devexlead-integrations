@@ -4,6 +4,8 @@
     {
         Australia,
         Pakistan,
-        Philippines
+        Philippines,
+        Vietnam,
+        India
     }
 }

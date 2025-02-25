@@ -39,6 +39,10 @@ namespace DevEx.Integrations.GoogleCalendar
                     return "en.pk";
                 case CountryEnum.Philippines:
                     return "en.philippines";
+                case CountryEnum.Vietnam:
+                    return "en.vietnamese";
+                case CountryEnum.India:
+                    return "en.indian";
                 default:
                     return string.Empty;
             }
