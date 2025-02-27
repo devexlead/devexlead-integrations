@@ -39,7 +39,7 @@ namespace DevEx.Integrations.JIRA.Model
         public List<JiraSprint> Sprints { get; set; }
 
         [JsonPropertyName("customfield_10016")]
-        public short? Points { get; set; }
+        public double? Points { get; set; }
 
         [JsonPropertyName("customfield_10001")]
         public JiraTeam? Team { get; set; }

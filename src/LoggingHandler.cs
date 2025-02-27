@@ -1,25 +1,25 @@
-﻿public class LoggingHandler : DelegatingHandler
+﻿using System.Text.Json;
+
+public class LoggingHandler : DelegatingHandler
 {
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        // Log request details
-        Console.WriteLine("Request:");
-        Console.WriteLine(request.ToString());
-        if (request.Content != null)
+        if (request.Content!=null)
         {
-            Console.WriteLine(await request.Content.ReadAsStringAsync());
+            var requestLogFilePath = Path.Combine(AppContext.BaseDirectory, "Logs", $"Request_{DateTime.Now:yyyyMMddHHmmssfff}.json");
+            await File.WriteAllTextAsync(requestLogFilePath, JsonSerializer.Serialize(request.Content.ReadAsStringAsync(), new JsonSerializerOptions { WriteIndented = true }));
+            Console.WriteLine($"Request log saved to: {requestLogFilePath}");
         }
-
 
         var response = await base.SendAsync(request, cancellationToken);
 
-
-        // Log response details
-        Console.WriteLine("Response:");
-        Console.WriteLine(response.ToString());
-        if (response.Content != null)
+        if (response.Content!=null)
         {
-            Console.WriteLine(await response.Content.ReadAsStringAsync());
+            var responseLogFilePath = Path.Combine(AppContext.BaseDirectory, "Logs", $"Response_{DateTime.Now:yyyyMMddHHmmssfff}.json");
+            var responseContent = await response.Content.ReadAsStringAsync();
+            var responseJson = JsonSerializer.Serialize(JsonSerializer.Deserialize<object>(responseContent), new JsonSerializerOptions { WriteIndented = true });
+            await File.WriteAllTextAsync(responseLogFilePath, responseJson);
+            Console.WriteLine($"Response log saved to: {responseLogFilePath}");
         }
 
         return response;
