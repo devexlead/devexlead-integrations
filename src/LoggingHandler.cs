@@ -15,7 +15,13 @@ public class LoggingHandler : DelegatingHandler
 
         if (response.Content!=null)
         {
-            var responseLogFilePath = Path.Combine(AppContext.BaseDirectory, "Logs", $"Response_{DateTime.Now:yyyyMMddHHmmssfff}.json");
+            var logDirectory = Path.Combine(AppContext.BaseDirectory, "Logs");
+            if (!Directory.Exists(logDirectory))
+            {
+                Directory.CreateDirectory(logDirectory);
+            }
+
+            var responseLogFilePath = Path.Combine(logDirectory, $"Response_{DateTime.Now:yyyyMMddHHmmssfff}.json");
             var responseContent = await response.Content.ReadAsStringAsync();
             var responseJson = JsonSerializer.Serialize(JsonSerializer.Deserialize<object>(responseContent), new JsonSerializerOptions { WriteIndented = true });
             await File.WriteAllTextAsync(responseLogFilePath, responseJson);
