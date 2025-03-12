@@ -1,9 +1,9 @@
-﻿using System.Text;
-using DevEx.Integrations.JIRA.Model;
+﻿using DevEx.Integrations.JIRA.Model;
 using DevEx.Integrations.JIRA.Model.Request;
 using DevEx.Integrations.JIRA.Model.Response;
 using devex_integrations.JIRA.Model.Response;
 using Refit;
+using System.Text;
 
 namespace DevEx.Integrations.JIRA
 {

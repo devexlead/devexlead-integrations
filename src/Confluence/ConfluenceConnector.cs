@@ -1,6 +1,6 @@
-﻿using System.Text;
-using DevEx.Integrations.Confluence.Model;
+﻿using DevEx.Integrations.Confluence.Model;
 using Refit;
+using System.Text;
 
 namespace DevEx.Integrations.Confluence
 {

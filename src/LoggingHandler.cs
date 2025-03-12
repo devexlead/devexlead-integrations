@@ -4,7 +4,7 @@ public class LoggingHandler : DelegatingHandler
 {
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        if (request.Content!=null)
+        if (request.Content != null)
         {
             var requestLogFilePath = Path.Combine(AppContext.BaseDirectory, "Logs", $"Request_{DateTime.Now:yyyyMMddHHmmssfff}.json");
             await File.WriteAllTextAsync(requestLogFilePath, JsonSerializer.Serialize(request.Content.ReadAsStringAsync(), new JsonSerializerOptions { WriteIndented = true }));
@@ -13,7 +13,7 @@ public class LoggingHandler : DelegatingHandler
 
         var response = await base.SendAsync(request, cancellationToken);
 
-        if (response.Content!=null)
+        if (response.Content != null)
         {
             var logDirectory = Path.Combine(AppContext.BaseDirectory, "Logs");
             if (!Directory.Exists(logDirectory))
