@@ -1,4 +1,4 @@
-namespace devex_integrations.JIRA.Constants
+namespace DevExLead.Integrations.JIRA.Constants
 {
     public class IssueTypeConstants
     {

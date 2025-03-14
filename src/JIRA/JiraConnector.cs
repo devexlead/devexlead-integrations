@@ -1,7 +1,6 @@
 ﻿using DevExLead.Integrations.JIRA.Model;
 using DevExLead.Integrations.JIRA.Model.Request;
 using DevExLead.Integrations.JIRA.Model.Response;
-using devex_integrations.JIRA.Model.Response;
 using Refit;
 using System.Text;
 

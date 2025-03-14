@@ -1,7 +1,6 @@
-﻿using DevExLead.Integrations.JIRA.Model;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace devex_integrations.JIRA.Model.Response
+namespace DevExLead.Integrations.JIRA.Model.Response
 {
 
     public class JiraGroupMembersResponse
