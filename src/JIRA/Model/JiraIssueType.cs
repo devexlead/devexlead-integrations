@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DevEx.Integrations.JIRA.Model
+namespace DevExLead.Integrations.JIRA.Model
 {
     public class JiraIssueType
     {

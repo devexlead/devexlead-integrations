@@ -1,5 +1,5 @@
 ﻿
-namespace DevEx.Integrations.GoogleCalendar.Model
+namespace DevExLead.Integrations.GoogleCalendar.Model
 {
     public class GoogleCalendarEvent
     {

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DevEx.Integrations.JIRA.Model.Request
+namespace DevExLead.Integrations.JIRA.Model.Request
 {
     public class JiraFieldsCreateRequest
     {

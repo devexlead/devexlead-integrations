@@ -1,4 +1,4 @@
-﻿namespace DevEx.Integrations.GitHub.GraphQL
+﻿namespace DevExLead.Integrations.GitHub.GraphQL
 {
     public class Data
     {

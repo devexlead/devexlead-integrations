@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace DevEx.Integrations
+namespace DevExLead.Integrations
 {
     public static class RefitHelper
     {

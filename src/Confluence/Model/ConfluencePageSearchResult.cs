@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DevEx.Integrations.Confluence.Model
+namespace DevExLead.Integrations.Confluence.Model
 {
     public class ConfluencePageSearchResult
     {

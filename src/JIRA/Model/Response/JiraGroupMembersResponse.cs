@@ -1,4 +1,4 @@
-﻿using DevEx.Integrations.JIRA.Model;
+﻿using DevExLead.Integrations.JIRA.Model;
 using System.Text.Json.Serialization;
 
 namespace devex_integrations.JIRA.Model.Response

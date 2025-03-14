@@ -1,7 +1,7 @@
-﻿using DevEx.Integrations.GoogleCalendar.Model.Response;
+﻿using DevExLead.Integrations.GoogleCalendar.Model.Response;
 using Refit;
 
-namespace DevEx.Integrations
+namespace DevExLead.Integrations
 {
     /// <summary>
     /// 

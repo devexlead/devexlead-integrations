@@ -1,7 +1,7 @@
-﻿using DevEx.Integrations.GitHub.Model;
+﻿using DevExLead.Integrations.GitHub.Model;
 using Refit;
 
-namespace DevEx.Integrations
+namespace DevExLead.Integrations
 {
     /// <summary>
     /// https://docs.github.com/en/rest

@@ -1,4 +1,4 @@
-﻿namespace DevEx.Integrations.Confluence.Model
+﻿namespace DevExLead.Integrations.Confluence.Model
 {
     public class ConfluencePageLastUpdated
     {

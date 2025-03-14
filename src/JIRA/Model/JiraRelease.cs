@@ -1,4 +1,4 @@
-﻿namespace DevEx.Integrations.JIRA.Model
+﻿namespace DevExLead.Integrations.JIRA.Model
 {
     public class JiraRelease
     {

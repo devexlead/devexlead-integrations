@@ -1,7 +1,7 @@
-﻿using DevEx.Integrations.Confluence.Model;
+﻿using DevExLead.Integrations.Confluence.Model;
 using Refit;
 
-namespace DevEx.Integrations
+namespace DevExLead.Integrations
 {
     /// <summary>
     /// https://docs.atlassian.com/confluence/REST/latest/

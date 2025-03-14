@@ -1,10 +1,10 @@
-﻿using DevEx.Integrations.JIRA.Model;
-using DevEx.Integrations.JIRA.Model.Request;
-using DevEx.Integrations.JIRA.Model.Response;
+﻿using DevExLead.Integrations.JIRA.Model;
+using DevExLead.Integrations.JIRA.Model.Request;
+using DevExLead.Integrations.JIRA.Model.Response;
 using devex_integrations.JIRA.Model.Response;
 using Refit;
 
-namespace DevEx.Integrations
+namespace DevExLead.Integrations
 {
     /// <summary>
     /// https://developer.atlassian.com/server/jira/platform/rest/v10000/intro/#gettingstarted

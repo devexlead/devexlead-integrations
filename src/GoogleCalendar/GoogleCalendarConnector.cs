@@ -1,7 +1,7 @@
-﻿using DevEx.Integrations.GoogleCalendar.Model;
+﻿using DevExLead.Integrations.GoogleCalendar.Model;
 using Refit;
 
-namespace DevEx.Integrations.GoogleCalendar
+namespace DevExLead.Integrations.GoogleCalendar
 {
     public class GoogleCalendarConnector
     {

@@ -1,4 +1,4 @@
-﻿namespace DevEx.Integrations.GoogleCalendar.Model.Response
+﻿namespace DevExLead.Integrations.GoogleCalendar.Model.Response
 {
     public class GoogleCalendarResponse
     {
