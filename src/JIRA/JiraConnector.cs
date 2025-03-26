@@ -55,7 +55,7 @@ namespace DevExLead.Integrations.JIRA
         {
             var allJiraSprints = new List<JiraSprint>();
 
-            var increment = 100;
+            var increment = 50; //JIRA API max limit
             var startAt = 0;
             var finishAt = 1;
 
