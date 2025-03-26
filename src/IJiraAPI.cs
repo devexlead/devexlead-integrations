@@ -16,7 +16,7 @@ namespace DevExLead.Integrations
         [Get("/rest/api/2/project/{projectId}/versions")]
         Task<List<JiraRelease>> FetchFixVersions([HeaderCollection] IDictionary<string, string> headers, [AliasAs("projectId")] string projectId);
 
-        [Get("/rest/agile/latest/board/{boardId}/sprint?maxResults=100&startAt={startAt}")]
+        [Get("/rest/agile/latest/board/{boardId}/sprint?startAt={startAt}")]
         Task<JiraSprintQueryResponse> FetchSprints([HeaderCollection] IDictionary<string, string> headers, [AliasAs("boardId")] int boardId, [AliasAs("startAt")] int startAt);
 
         [Get("/rest/api/2/issue/{issueId}/comment")]
