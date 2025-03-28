@@ -34,14 +34,16 @@ namespace DevExLead.Integrations.JIRA.Model
         [JsonPropertyName("priority")]
         public JiraPriority Priority { get; set; }
 
-        //TODO: Make this customizable
-        [JsonPropertyName("customfield_10020")]
+        //TODO: Make this customizable in Refit Settings
+        [JsonPropertyName("customfield_10007")]
         public List<JiraSprint> Sprints { get; set; }
 
-        [JsonPropertyName("customfield_10016")]
+        //TODO: Make this customizable in Refit Settings
+        [JsonPropertyName("customfield_10005")]
         public double? Points { get; set; }
 
-        [JsonPropertyName("customfield_10001")]
+        //TODO: Make this customizable in Refit Settings
+        //[JsonPropertyName("customfield_10001")]
         public JiraTeam? Team { get; set; }
 
         [JsonPropertyName("fixVersions")]
