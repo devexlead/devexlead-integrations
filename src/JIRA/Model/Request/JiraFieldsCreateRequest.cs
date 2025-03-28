@@ -20,7 +20,6 @@ namespace DevExLead.Integrations.JIRA.Model.Request
         [JsonPropertyName("components")]
         public List<JiraComponent> Components { get; set; }
 
-
         [JsonPropertyName("issuetype")]
         public JiraIssueType IssueType { get; set; }
 
@@ -31,23 +30,23 @@ namespace DevExLead.Integrations.JIRA.Model.Request
         public JiraPriority Priority { get; set; }
 
         //TODO: Make this customizable
-        [JsonPropertyName("customfield_10020")]
+        [JsonPropertyName("customfield_10007")]
         public long? SprintId { get; set; }
 
 
         [JsonPropertyName("fixVersions")]
         public List<JiraFixVersion> FixVersions { get; set; }
 
-        [JsonPropertyName("customfield_10045")]
-        public JiraEnvironment Environment { get; set; }
+        //[JsonPropertyName("customfield_10045")]
+        //public JiraEnvironment Environment { get; set; }
 
-        [JsonPropertyName("customfield_10015")]
-        public virtual DateOnly? StartDate { get; set; }
-        [JsonPropertyName("duedate")]
-        public virtual DateOnly? DueDate { get; set; }
+        //[JsonPropertyName("customfield_10015")]
+        //public virtual DateOnly? StartDate { get; set; }
+        //[JsonPropertyName("duedate")]
+        //public virtual DateOnly? DueDate { get; set; }
 
-        [JsonPropertyName("timeestimate")]
-        public int? TimeEstimateInSeconds { get; set; }
+        //[JsonPropertyName("timeestimate")]
+        //public int? TimeEstimateInSeconds { get; set; }
 
     }
 }
