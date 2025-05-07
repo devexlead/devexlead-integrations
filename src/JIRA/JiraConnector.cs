@@ -117,9 +117,9 @@ namespace DevExLead.Integrations.JIRA
             await _api.ChangeIssueFieldAsync(_headers, issueId, request);
         }
 
-        public async Task WatchIssueAsync(string issueId, string userId)
+        public async Task WatchIssueAsync(string issueId, string userEmailAddress)
         {
-            await _api.WatchIssueAsync(_headers, issueId, userId);
+            await _api.WatchIssueAsync(_headers, issueId, userEmailAddress);
         }
 
 

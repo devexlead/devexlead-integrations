@@ -34,8 +34,8 @@ namespace DevExLead.Integrations
         [Put("/rest/api/3/issue/{issueId}")]
         Task ChangeIssueFieldAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] StringContent request);
 
-        [Post("/rest/api/2/issue/{issueId}/watchers")]
-        Task WatchIssueAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] string userId);
+        [Post("/rest/api/2/issue/{issueId}/watchers?username={userEmailAddress}")]
+        Task WatchIssueAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [AliasAs("userEmailAddress")] string userEmailAddress);
 
     }
 }
