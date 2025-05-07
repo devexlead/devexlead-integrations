@@ -6,6 +6,6 @@ namespace DevExLead.Integrations.JIRA.Constants
         public const string STORY = "Story";
         public const string BUG = "Bug";
         public const string TASK = "Task";
-        public const string SUBTASK = "Subtask";
+        public const string SUBTASK = "Sub-task";
     }
 }
