@@ -8,7 +8,7 @@ namespace DevExLead.Integrations.JIRA.Model
         public string Id { get; set; }
 
         [JsonPropertyName("author")]
-        public JiraAuthor Author { get; set; }
+        public JiraUser Author { get; set; }
 
         [JsonPropertyName("created")]
         public string Created { get; set; }

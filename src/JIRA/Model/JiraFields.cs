@@ -31,6 +31,12 @@ namespace DevExLead.Integrations.JIRA.Model
         [JsonPropertyName("assignee")]
         public JiraUser Assignee { get; set; }
 
+        [JsonPropertyName("creator")]
+        public JiraUser Creator { get; set; }
+
+        [JsonPropertyName("reporter")]
+        public JiraUser Reporter { get; set; }
+
         [JsonPropertyName("priority")]
         public JiraPriority Priority { get; set; }
 
