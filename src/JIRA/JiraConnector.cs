@@ -117,11 +117,14 @@ namespace DevExLead.Integrations.JIRA
             await _api.ChangeIssueFieldAsync(_headers, issueId, request);
         }
 
-        public async Task WatchIssueAsync(string issueId, string userEmailAddress)
+        public async Task WatchIssueWithEmailAddressAsync(string issueId, string userEmailAddress)
         {
-            await _api.WatchIssueAsync(_headers, issueId, userEmailAddress);
+            await _api.WatchIssueWithEmailAddressAsync(_headers, issueId, userEmailAddress);
         }
 
-
+        public async Task WatchIssueWithAccountIdAsync(string issueId, string accountId)
+        {
+            await _api.WatchIssueWithAccountIdAsync(_headers, issueId, accountId);
+        }
     }
 }
