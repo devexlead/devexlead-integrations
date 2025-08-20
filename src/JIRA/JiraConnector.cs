@@ -61,7 +61,7 @@ namespace DevExLead.Integrations.JIRA
 
             while (startAt <= finishAt)
             {
-                var response = await _api.FetchSprints(_headers, boardId, startAt);
+                var response = await _api.FetchSprintsAsync(_headers, boardId, startAt);
                 startAt += increment;
                 finishAt = (int)response.Total - 1;
                 allJiraSprints.AddRange(response.Values);
@@ -78,18 +78,18 @@ namespace DevExLead.Integrations.JIRA
 
         public async Task<JiraCommentResponse> FetchComments(string issueId)
         {
-            return await _api.FetchComments(_headers, issueId);
+            return await _api.FetchCommentsAsync(_headers, issueId);
         }
 
         public async Task<JiraGroupMembersResponse> GetJiraUsersByGroupName(string groupName)
         {
-            return await _api.GetJiraUsersByGroupName(_headers, groupName);
+            return await _api.GetJiraUsersByGroupNameAsync(_headers, groupName);
         }
 
         public async Task PostComment(string issueId, string comment)
         {
             var body = $"{{\"body\":\"{comment}\"}}";
-            await _api.PostComment(_headers, issueId, body);
+            await _api.PostCommentAsync(_headers, issueId, body);
         }
 
         public async Task ChangeIssueFieldAsync(string issueId, string body)
@@ -117,14 +117,15 @@ namespace DevExLead.Integrations.JIRA
             await _api.ChangeIssueFieldAsync(_headers, issueId, request);
         }
 
-        public async Task WatchIssueWithEmailAddressAsync(string issueId, string userEmailAddress)
-        {
-            await _api.WatchIssueWithEmailAddressAsync(_headers, issueId, userEmailAddress);
-        }
-
         public async Task WatchIssueWithAccountIdAsync(string issueId, string accountId)
         {
             await _api.WatchIssueWithAccountIdAsync(_headers, issueId, accountId);
+        }
+
+        public async Task<List<ComponentResponse>> FetchAllComponentsAsync(string projectId)
+        {
+            var response = await _api.FetchAllComponentsAsync(_headers, projectId);
+            return response;
         }
     }
 }

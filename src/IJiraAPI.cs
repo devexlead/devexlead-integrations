@@ -10,35 +10,40 @@ namespace DevExLead.Integrations
     /// </summary>
     internal interface IJiraAPI
     {
-        [Get("/rest/api/2/search?jql={jql}&expand=changelog&maxResults=100&startAt={startAt}")]
+        [Get("/rest/api/3/search?jql={jql}&expand=changelog&maxResults=100&startAt={startAt}")]
         Task<JiraIssueQueryResponse> RunJqlAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("jql")] string jql, int startAt);
 
-        [Get("/rest/api/2/project/{projectId}/versions")]
-        Task<List<JiraRelease>> FetchFixVersions([HeaderCollection] IDictionary<string, string> headers, [AliasAs("projectId")] string projectId);
+        [Get("/rest/api/3/project/{projectId}/versions")]
+        Task<List<JiraRelease>> FetchFixVersionsAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("projectId")] string projectId);
 
         [Get("/rest/agile/latest/board/{boardId}/sprint?startAt={startAt}")]
-        Task<JiraSprintQueryResponse> FetchSprints([HeaderCollection] IDictionary<string, string> headers, [AliasAs("boardId")] int boardId, [AliasAs("startAt")] int startAt);
+        Task<JiraSprintQueryResponse> FetchSprintsAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("boardId")] int boardId, [AliasAs("startAt")] int startAt);
 
-        [Get("/rest/api/2/issue/{issueId}/comment")]
-        Task<JiraCommentResponse> FetchComments([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId);
+        [Get("/rest/api/3/issue/{issueId}/comment")]
+        Task<JiraCommentResponse> FetchCommentsAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId);
 
         [Get("/rest/api/3/group/member?groupname={GroupName}")]
-        Task<JiraGroupMembersResponse> GetJiraUsersByGroupName([HeaderCollection] IDictionary<string, string> headers, [AliasAs("GroupName")] string groupName);
+        Task<JiraGroupMembersResponse> GetJiraUsersByGroupNameAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("GroupName")] string groupName);
 
-        [Post("/rest/api/2/issue/{issueId}/comment")]
-        Task PostComment([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] string request);
+        [Post("/rest/api/3/issue/{issueId}/comment")]
+        Task PostCommentAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] string request);
 
-        [Post("/rest/api/2/issue")]
+        [Post("/rest/api/3/issue")]
         Task<JiraIssueCreateResponse> CreateIssueAsync([HeaderCollection] IDictionary<string, string> headers, [Body] JiraIssueCreateRequest request);
 
         [Put("/rest/api/3/issue/{issueId}")]
         Task ChangeIssueFieldAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] StringContent request);
 
-        [Post("/rest/api/2/issue/{issueId}/watchers?username={userEmailAddress}")]
-        Task WatchIssueWithEmailAddressAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [AliasAs("userEmailAddress")] string userEmailAddress);
-
         [Post("/rest/api/3/issue/{issueId}/watchers")]
         Task WatchIssueWithAccountIdAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] string accountId);
 
+        [Post("/rest/api/3/component")]
+        Task<ComponentResponse> CreateComponentAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] ComponentRequest componentRequest);
+        
+        [Put("/rest/api/3/component/{componentId}")]
+        Task<ComponentResponse> UpdateComponentAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("componentId")] string componentId, [Body] ComponentRequest componentRequest);
+
+        [Put("rest/api/3/project/{projectId}/components")]
+        Task<List<ComponentResponse>> FetchAllComponentsAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("projectId")] string projectId);
     }
 }
