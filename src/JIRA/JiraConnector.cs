@@ -44,7 +44,7 @@ namespace DevExLead.Integrations.JIRA
                     Fields = ["summary", "status", "issuetype", "priority", "assignee", "reporter", "creator",
                               "project", "created", "updated", "resolution", "resolutiondate", "duedate", "labels", "components", "fixVersions",
                               "versions", "timeoriginalestimate", "timeestimate", "timespent", "progress", "description", "watches", "comment",
-                              "customfield_10007", "customfield_10005", "subtasks"],
+                              "customfield_10007", "customfield_10005", "subtasks", "parent"],
                     Expand = ["changelog"]
                 };
                 var response = await _api.RunJqlAsync(_headers, request);
