@@ -11,7 +11,7 @@ namespace DevExLead.Integrations.JIRA.Model
         public string Summary { get; set; }
 
         [JsonPropertyName("description")]
-        public string Description { get; set; }
+        public object? Description { get; set; }
 
         [JsonPropertyName("parent")]
         public JiraParent Parent { get; set; }

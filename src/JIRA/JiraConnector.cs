@@ -36,7 +36,18 @@ namespace DevExLead.Integrations.JIRA
 
             while (startAt <= finishAt)
             {
-                var response = await _api.RunJqlAsync(_headers, $"{jql}", startAt);
+                var request = new JqlRequest
+                {
+                    Jql = jql,
+                    StartAt = startAt,
+                    MaxResults = increment,
+                    Fields = ["summary", "status", "issuetype", "priority", "assignee", "reporter", "creator",
+                              "project", "created", "updated", "resolution", "resolutiondate", "duedate", "labels", "components", "fixVersions",
+                              "versions", "timeoriginalestimate", "timeestimate", "timespent", "progress", "description", "watches", "comment",
+                              "customfield_10007", "customfield_10005", "subtasks"],
+                    Expand = ["changelog"]
+                };
+                var response = await _api.RunJqlAsync(_headers, request);
                 startAt += increment;
                 finishAt = (int)response.Total - 1;
                 allJiraIssues.AddRange(response.Issues);
@@ -51,6 +62,11 @@ namespace DevExLead.Integrations.JIRA
             return jiraResponse;
         }
 
+        public async Task<JiraIssueCreateResponse> UpdateIssueAssigneeAsync(string jiraId, JiraUser jiraUser)
+        {
+            var jiraResponse = await _api.UpdateIssueAssigneeAsync(_headers, jiraId, jiraUser);
+            return jiraResponse;
+        }
         public async Task<List<JiraSprint>> FetchSprints(int boardId)
         {
             var allJiraSprints = new List<JiraSprint>();

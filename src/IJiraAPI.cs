@@ -10,8 +10,8 @@ namespace DevExLead.Integrations
     /// </summary>
     internal interface IJiraAPI
     {
-        [Get("/rest/api/3/search?jql={jql}&expand=changelog&maxResults=100&startAt={startAt}")]
-        Task<JiraIssueQueryResponse> RunJqlAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("jql")] string jql, int startAt);
+        [Post("/rest/api/3/search")]
+        Task<JiraIssueQueryResponse> RunJqlAsync([HeaderCollection] IDictionary<string, string> headers, [Body] JqlRequest request);
 
         [Get("/rest/api/3/project/{projectId}/versions")]
         Task<List<JiraRelease>> FetchFixVersionsAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("projectId")] string projectId);
@@ -31,6 +31,9 @@ namespace DevExLead.Integrations
         [Post("/rest/api/3/issue")]
         Task<JiraIssueCreateResponse> CreateIssueAsync([HeaderCollection] IDictionary<string, string> headers, [Body] JiraIssueCreateRequest request);
 
+        [Put("/rest/api/3/issue/{issueId}/assignee")]
+        Task<JiraIssueCreateResponse> UpdateIssueAssigneeAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] JiraUser jiraUser);
+
         [Put("/rest/api/3/issue/{issueId}")]
         Task ChangeIssueFieldAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] StringContent request);
 
@@ -43,7 +46,7 @@ namespace DevExLead.Integrations
         [Put("/rest/api/3/component/{componentId}")]
         Task<ComponentResponse> UpdateComponentAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("componentId")] string componentId, [Body] ComponentRequest componentRequest);
 
-        [Put("rest/api/3/project/{projectId}/components")]
+        [Put("/rest/api/3/project/{projectId}/components")]
         Task<List<ComponentResponse>> FetchAllComponentsAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("projectId")] string projectId);
     }
 }

@@ -17,7 +17,7 @@ namespace DevExLead.Integrations.JIRA.Model
         public string AccountType { get; set; }
 
         [JsonPropertyName("active")]
-        public bool Active { get; set; }
+        public bool? Active { get; set; }
 
         [JsonPropertyName("emailAddress")]
         public string EmailAddress { get; set; }
