@@ -135,7 +135,9 @@ namespace DevExLead.Integrations.JIRA
 
         public async Task WatchIssueWithAccountIdAsync(string issueId, string accountId)
         {
-            await _api.WatchIssueWithAccountIdAsync(_headers, issueId, accountId);
+            string watcherAccountId = $"\"{accountId}\"";
+            var watcherAccountIdStringContent = new StringContent(watcherAccountId, Encoding.UTF8, "application/json");
+            await _api.WatchIssueWithAccountIdAsync(_headers, issueId, watcherAccountIdStringContent);
         }
 
         public async Task<List<ComponentResponse>> FetchAllComponentsAsync(string projectId)

@@ -38,7 +38,7 @@ namespace DevExLead.Integrations
         Task ChangeIssueFieldAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] StringContent request);
 
         [Post("/rest/api/3/issue/{issueId}/watchers")]
-        Task WatchIssueWithAccountIdAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] string accountId);
+        Task WatchIssueWithAccountIdAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] StringContent accountId);
 
         [Post("/rest/api/3/component")]
         Task<ComponentResponse> CreateComponentAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] ComponentRequest componentRequest);
