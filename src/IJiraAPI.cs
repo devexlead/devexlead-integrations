@@ -32,7 +32,7 @@ namespace DevExLead.Integrations
         Task<JiraIssueCreateResponse> CreateIssueAsync([HeaderCollection] IDictionary<string, string> headers, [Body] JiraIssueCreateRequest request);
 
         [Put("/rest/api/3/issue/{issueId}/assignee")]
-        Task<JiraIssueCreateResponse> UpdateIssueAssigneeAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] JiraUser jiraUser);
+        Task UpdateIssueAssigneeAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] JiraUser jiraUser);
 
         [Put("/rest/api/3/issue/{issueId}")]
         Task ChangeIssueFieldAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId, [Body] StringContent request);

@@ -62,10 +62,9 @@ namespace DevExLead.Integrations.JIRA
             return jiraResponse;
         }
 
-        public async Task<JiraIssueCreateResponse> UpdateIssueAssigneeAsync(string jiraId, JiraUser jiraUser)
+        public async Task UpdateIssueAssigneeAsync(string jiraId, JiraUser jiraUser)
         {
-            var jiraResponse = await _api.UpdateIssueAssigneeAsync(_headers, jiraId, jiraUser);
-            return jiraResponse;
+            await _api.UpdateIssueAssigneeAsync(_headers, jiraId, jiraUser);
         }
         public async Task<List<JiraSprint>> FetchSprints(int boardId)
         {
