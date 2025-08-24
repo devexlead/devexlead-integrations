@@ -144,5 +144,11 @@ namespace DevExLead.Integrations.JIRA
             var response = await _api.FetchAllComponentsAsync(_headers, projectId);
             return response;
         }
+
+        public async Task<ComponentResponse> CreateComponentAsync(ComponentRequest componentRequest)
+        {
+            var response = await _api.CreateComponentAsync(_headers, componentRequest);
+            return response;
+        }
     }
 }
