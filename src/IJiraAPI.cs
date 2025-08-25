@@ -19,6 +19,9 @@ namespace DevExLead.Integrations
         [Get("/rest/agile/latest/board/{boardId}/sprint?startAt={startAt}")]
         Task<JiraSprintQueryResponse> FetchSprintsAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("boardId")] int boardId, [AliasAs("startAt")] int startAt);
 
+        [Post("/rest/agile/1.0/sprint")]
+        Task<SprintCreateResponse> CreateSprintAsync([HeaderCollection] IDictionary<string, string> headers, [Body] SprintCreateRequest sprintCreateRequest);
+
         [Get("/rest/api/3/issue/{issueId}/comment")]
         Task<JiraCommentResponse> FetchCommentsAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("issueId")] string issueId);
 
@@ -48,5 +51,8 @@ namespace DevExLead.Integrations
 
         [Put("/rest/api/3/project/{projectId}/components")]
         Task<List<ComponentResponse>> FetchAllComponentsAsync([HeaderCollection] IDictionary<string, string> headers, [AliasAs("projectId")] string projectId);
+
+        [Get("/rest/agile/1.0/board")]
+        Task<List<ComponentResponse>> FetchBoards([HeaderCollection] IDictionary<string, string> headers);
     }
 }

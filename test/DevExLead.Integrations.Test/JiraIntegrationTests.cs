@@ -34,5 +34,30 @@ namespace DevExLead.Integrations.Test
             await _jiraConnector.CreateComponentAsync(componentRequest);
 
         }
+
+        [Fact]
+        public async Task CreateSprintsAsync()
+        {
+            var sprintNumber = 88;
+            var startDate = new DateOnly(2025, 10, 16);
+
+            for (int i = 0; i < 10; i++)
+            {
+                var sprintCreateRequest = new SprintCreateRequest
+                {
+                    Name = $"Sprint {sprintNumber}",
+                    StartDate = startDate,
+                    EndDate = startDate.AddDays(13),
+                    OriginBoardId = 1697,
+                    Goal = "TBD"
+                };
+
+                await _jiraConnector.CreateSprintAsync(sprintCreateRequest);
+
+                startDate = sprintCreateRequest.EndDate.AddDays(1);
+                sprintNumber++;
+            }
+
+        }
     }
 }

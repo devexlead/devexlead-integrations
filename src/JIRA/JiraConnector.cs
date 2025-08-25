@@ -150,5 +150,12 @@ namespace DevExLead.Integrations.JIRA
             var response = await _api.CreateComponentAsync(_headers, componentRequest);
             return response;
         }
+
+
+        public async Task<SprintCreateResponse> CreateSprintAsync(SprintCreateRequest sprintCreateRequest)
+        {
+            var response = await _api.CreateSprintAsync(_headers, sprintCreateRequest);
+            return response;
+        }
     }
 }
