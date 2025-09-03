@@ -23,6 +23,15 @@ namespace DevExLead.Integrations.Test
         }
 
         [Fact]
+        public async Task QueryJql()
+        {
+
+            var response = await _jiraConnector.RunJqlAsync("project = ABC");
+
+        }
+
+
+        [Fact]
         public async Task CreateComponentsAsync()
         {
             var componentRequest = new ComponentRequest

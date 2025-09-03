@@ -7,9 +7,6 @@ namespace DevExLead.Integrations.JIRA.Model.Request
         [JsonPropertyName("jql")]
         public string Jql { get; set; }
 
-        [JsonPropertyName("startAt")]
-        public int StartAt { get; set; }
-
         [JsonPropertyName("maxResults")]
         public int MaxResults { get; set; }
 
@@ -17,7 +14,9 @@ namespace DevExLead.Integrations.JIRA.Model.Request
         public string[] Fields { get; set; }
 
         [JsonPropertyName("expand")]
-        public string[] Expand { get; set; }
-    }
+        public string Expand { get; set; }
 
+        [JsonPropertyName("nextPageToken")]
+        public string? NextPageToken { get; set; }
+    }
 }

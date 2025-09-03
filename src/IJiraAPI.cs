@@ -10,7 +10,7 @@ namespace DevExLead.Integrations
     /// </summary>
     internal interface IJiraAPI
     {
-        [Post("/rest/api/3/search")]
+        [Post("/rest/api/3/search/jql")]
         Task<JiraIssueQueryResponse> RunJqlAsync([HeaderCollection] IDictionary<string, string> headers, [Body] JqlRequest request);
 
         [Get("/rest/api/3/project/{projectId}/versions")]

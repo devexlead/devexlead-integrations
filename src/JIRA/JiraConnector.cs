@@ -30,27 +30,29 @@ namespace DevExLead.Integrations.JIRA
         {
             var allJiraIssues = new List<JiraIssue>();
 
-            var increment = 100;
-            var startAt = 0;
-            var finishAt = 1;
+            var jiraQueryResponse = new JiraIssueQueryResponse
+            {
+                IsLast = false,
+                NextPageToken = null,
+            };
 
-            while (startAt <= finishAt)
+            while (!jiraQueryResponse.IsLast)
             {
                 var request = new JqlRequest
                 {
                     Jql = jql,
-                    StartAt = startAt,
-                    MaxResults = increment,
+                    MaxResults = 100,
                     Fields = ["summary", "status", "issuetype", "priority", "assignee", "reporter", "creator",
                               "project", "created", "updated", "resolution", "resolutiondate", "duedate", "labels", "components", "fixVersions",
                               "versions", "timeoriginalestimate", "timeestimate", "timespent", "progress", "description", "watches", "comment",
                               "customfield_10007", "customfield_10005", "subtasks", "parent"],
-                    Expand = ["changelog"]
+                    Expand = "changelog",
+                    NextPageToken = jiraQueryResponse?.NextPageToken
                 };
-                var response = await _api.RunJqlAsync(_headers, request);
-                startAt += increment;
-                finishAt = (int)response.Total - 1;
-                allJiraIssues.AddRange(response.Issues);
+
+                jiraQueryResponse = await _api.RunJqlAsync(_headers, request);
+                
+                allJiraIssues.AddRange(jiraQueryResponse.Issues);
             }
 
             return allJiraIssues;
