@@ -3,10 +3,10 @@
     public class AzureDevOpsPipelinesResponse
     {
         public int count { get; set; }
-        public Value[] value { get; set; }
+        public AzureDevOpsPipeline[] value { get; set; }
     }
 
-    public class Value
+    public class AzureDevOpsPipeline
     {
         public _Links _links { get; set; }
         public string url { get; set; }
@@ -31,5 +31,42 @@
     {
         public string href { get; set; }
     }
+
+
+
+    public class AzureDevOpsRunBody
+    {
+        public bool previewRun { get; set; }
+        public string[] stagesToSkip { get; set; }
+        public Resources resources { get; set; }
+    }
+
+    public class Resources
+    {
+        public Pipelines pipelines { get; set; }
+        public Repositories repositories { get; set; }
+    }
+
+    public class Pipelines
+    {
+        public PipelinesSelf self { get; set; }
+    }
+
+    public class PipelinesSelf
+    {
+        public int runId { get; set; }
+    }
+
+    public class Repositories
+    {
+        public RepositoriesSelf self { get; set; }
+    }
+
+    public class RepositoriesSelf
+    {
+        public string refName { get; set; }
+        public string version { get; set; }
+    }
+
 
 }

@@ -30,10 +30,54 @@ namespace DevExLead.Integrations.Confluence
             _api = RestService.For<IAzureDevOps>(baseUrl, settings);
         }
 
-        public async Task<AzureDevOpsPipelinesResponse> FetchPipelines()
+        public async Task<List<AzureDevOpsPipeline>> FetchPipelines()
         {
             var result = await _api.FetchPipelines(_headers, _organization, _project);
-            return result;
+            return result.value.ToList();
+        }
+
+        public async Task<List<AzureDevOpsBuild>> FetchBuilds(int buildId, string branch, string statusFilter)
+        {
+            var result = await _api.FetchBuilds(_headers, _organization, _project, buildId, branch, statusFilter);
+            return result.value.OrderByDescending(b => b.queueTime).ToList();
+        }
+
+
+        public async Task<List<AzureDevOpsBuild>> RunBuild(int pipelineId, int runId, string branch, string commitId, List<string> stagesToSkip)
+        {
+            var azureDevOpsRunBody = new AzureDevOpsRunBody
+            {
+                 previewRun=false,
+                 resources = new Resources
+                  {
+                      pipelines = new Pipelines
+                      {
+                          self = new PipelinesSelf()
+                          {
+                              runId = runId
+                          }
+                      },
+                      repositories = new Repositories
+                      {
+                          self = new RepositoriesSelf()
+                          {
+                              refName = branch,
+                              version = commitId
+                          }
+                      }
+                 },
+                stagesToSkip = stagesToSkip.ToArray()
+            };  
+
+            var result = await _api.RunBuild(_headers, _organization, _project, pipelineId, azureDevOpsRunBody);
+            return result.value.OrderByDescending(b => b.queueTime).ToList();
+        }
+
+
+        public async Task<List<AzureDevOpsRun>> FetchRuns(int pipelineId)
+        {
+            var result = await _api.FetchRuns(_headers, _organization, _project, pipelineId);
+            return result.value.OrderByDescending(b => b.createdDate).ToList();
         }
 
 
