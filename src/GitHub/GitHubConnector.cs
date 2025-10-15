@@ -27,8 +27,8 @@ namespace DevExLead.Integrations.GitHub
 
         public async Task<List<GitHubCommit>> GetCommits(string organization, string repository, string branchName)
         {
-            var commits = await _api.GetCommits(_headers, organization, repository, branchName);
-            return commits;
+            var commitsResponse = await _api.GetCommits(_headers, organization, repository, branchName);
+            return commitsResponse.Commits.ToList();
         }
 
         public async Task<List<GitHubPullRequest>> GetPullRequests(string organization, string jiraIssueId)
