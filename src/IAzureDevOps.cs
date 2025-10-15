@@ -18,8 +18,12 @@ namespace DevExLead.Integrations
         [Get("/{organization}/{project}/_apis/pipelines/{pipelineId}/runs?api-version=7.2-preview.1")]
         Task<AzureDevOpsRunsResponse> FetchRuns([HeaderCollection] IDictionary<string, string> headers, [AliasAs("organization")] string organization, [AliasAs("project")] string project, [AliasAs("pipelineId")] int pipelineId);
 
+        [Get("/{organization}/{project}/_apis/pipelines/{pipelineId}/runs/{runId}?api-version=7.1-preview.1")]
+        Task<AzureDevOpsRun> FetchRun([HeaderCollection] IDictionary<string, string> headers, [AliasAs("organization")] string organization, [AliasAs("project")] string project, [AliasAs("pipelineId")] int pipelineId, [AliasAs("runId")] int runId);
+
         [Post("/{organization}/{project}/_apis/pipelines/{pipelineId}/runs?api-version=7.1-preview.1")]
         Task<AzureDevOpsBuildBuildsResponse> RunBuild([HeaderCollection] IDictionary<string, string> headers, [AliasAs("organization")] string organization, [AliasAs("project")] string project, [AliasAs("pipelineId")] int pipelineId, [Body] AzureDevOpsRunBody azureDevOpsRunBody);
+        
 
 
 

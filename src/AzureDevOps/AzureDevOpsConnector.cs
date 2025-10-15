@@ -80,6 +80,12 @@ namespace DevExLead.Integrations.Confluence
             return result.value.OrderByDescending(b => b.createdDate).ToList();
         }
 
+        public async Task<AzureDevOpsRun> FetchRun(int pipelineId, int runId)
+        {
+            var result = await _api.FetchRun(_headers, _organization, _project, pipelineId, runId);
+            return result;
+        }
+
 
     }
 }

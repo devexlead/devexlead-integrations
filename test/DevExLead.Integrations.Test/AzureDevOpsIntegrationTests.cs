@@ -31,6 +31,7 @@ namespace DevExLead.Integrations.Test
             var runs = await _connector.FetchRuns(pipeline.id);
             foreach (var run in runs)
             {
+                var runDetails = await _connector.FetchRun(pipeline.id, run.id);
                 var build = builds.FirstOrDefault(b => b.buildNumber == run.name);
                 Console.WriteLine($"{run.id} - {run.state} - {build.triggerInfo.cimessage} - {build.triggerInfo.cisourceBranch} - {build.triggerInfo.cisourceSha}");
                 await _connector.RunBuild(pipeline.id, run.id, build.triggerInfo.cisourceBranch, build.triggerInfo.cisourceSha, stagesToSkip);
