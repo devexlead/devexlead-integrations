@@ -19,22 +19,43 @@ namespace DevExLead.Integrations.GitHub
             _api = RestService.For<IGitHubAPI>("https://api.github.com", settings);
         }
 
-        public async Task<GitHubBranch> GetBranch(string organization, string repository, string jiraIssueId)
+        public async Task<GitHubBranch?> GetBranch(string organization, string repository, string jiraIssueId)
         {
-            var branch = await _api.GetBranch(_headers, organization, repository, jiraIssueId);
-            return branch;
+            try
+            {
+                var branch = await _api.GetBranch(_headers, organization, repository, jiraIssueId);
+                return branch;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
-        public async Task<List<GitHubCommit>> GetCommits(string organization, string repository, string branchName)
+        public async Task<List<GitHubCommit>?> GetCommits(string organization, string repository, string branchName)
         {
-            var commits = await _api.GetCommits(_headers, organization, repository, branchName);
-            return commits;
+            try
+            {
+                var commits = await _api.GetCommits(_headers, organization, repository, branchName);
+                return commits;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
-        public async Task<List<GitHubPullRequest>> GetPullRequests(string organization, string jiraIssueId)
+        public async Task<List<GitHubPullRequest>?> GetPullRequests(string organization, string jiraIssueId)
         {
-            var pullRequests = await _api.GetPullRequests(_headers, organization, jiraIssueId);
-            return pullRequests.items.ToList();
+            try
+            {
+                var pullRequests = await _api.GetPullRequests(_headers, organization, jiraIssueId);
+                return pullRequests.items.ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }
