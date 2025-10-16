@@ -7,6 +7,7 @@
         public Templateparameters templateParameters { get; set; }
         public Pipeline pipeline { get; set; }
         public string state { get; set; }
+        public string result { get; set; }
         public DateTime createdDate { get; set; }
         public string url { get; set; }
         public Resources resources { get; set; }
